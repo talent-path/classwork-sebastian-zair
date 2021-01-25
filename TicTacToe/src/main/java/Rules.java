@@ -181,7 +181,7 @@ public class Rules {
         // bottomMiddle = board[2][1]
         // bottomRight = board[2][2]
     }
-    
+
     public static void checkEmptySpaces() {
         // if a space does not contain an X or O it is empty..
         // if a space contains an X or O that option should be taken away from the user/computer
@@ -191,7 +191,10 @@ public class Rules {
         // will require user input
         // implement a switch case
         // based on the number that is picked..it will enter the move?
-        // example: user enters "1" and the case --> topLeft = boardGame[0][0
+        // example: user enters "1" and the case --> topLeft = boardGame[0][0]
+        // The user will be SELECTING A PLACE ON THE BOARD. The character does not matter as that will be ASSIGNED..
+        // Ask David/Eliot case topLeft: --> boardGame[0][0] = 'X'; if this is possible
+        // If it is then we can get this show on the road!
         throw new UnsupportedOperationException();
     }
 
