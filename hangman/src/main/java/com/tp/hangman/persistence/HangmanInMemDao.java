@@ -1,6 +1,7 @@
 package com.tp.hangman.persistence;
 
 import com.tp.hangman.models.HangmanGame;
+import com.tp.hangman.models.HangmanViewModel;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -56,6 +57,16 @@ public class HangmanInMemDao implements HangmanDao {
 //        return toReturn;
 
         return allGames.stream().filter( g -> g.getGameId().equals(gameId) ).findFirst().orElse(null);
+    }
+
+    @Override
+    public List<HangmanGame> getAllGames() {
+        List<HangmanGame> toConvert = dao.getAllGames();
+        List<HangmanViewModel> converted = new ArrayList<>();
+
+        for(HangmanGame toConvert: allGames){
+            converted.add(convertModel(toConvert));
+        }
     }
 
     public List<HangmanGame> getVowelGames(){

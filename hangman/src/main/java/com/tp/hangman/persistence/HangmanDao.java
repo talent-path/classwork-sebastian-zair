@@ -1,6 +1,7 @@
 package com.tp.hangman.persistence;
 
 import com.tp.hangman.models.HangmanGame;
+import com.tp.hangman.models.HangmanViewModel;
 
 import java.util.List;
 
@@ -9,6 +10,9 @@ import java.util.List;
 //but somewhat unusual for other languages
 public interface HangmanDao {
     HangmanGame getGameById(Integer gameId);
+
+    //List<HangmanViewModel> getAllGames();
+    public List<HangmanGame> getAllGames();
 
     //List<HangmanGame> getGamesByCategory(String category );
 }

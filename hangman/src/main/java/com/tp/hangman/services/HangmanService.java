@@ -6,6 +6,9 @@ import com.tp.hangman.persistence.HangmanInMemDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 //handles the logic for the game
 @Component
 public class HangmanService {
@@ -16,20 +19,35 @@ public class HangmanService {
         return convertModel( game );
     }
 
-    public HangmanViewModel makeGuess(Integer gameId, String guess) {
+    public HangmanViewModel makeGuess(Integer gameId, String guess) throws NullGuessException, InvalidGuessException, InvalidGameIdException{
+        // if Guess is "null"..
+        // if you try to reference a "Null" with a "." then it will have you
+        // try to find the reference in memory right?
+        // You cant do that with null because a null is an INVALID reference location
+        // throws = possibly might throw said exception
+        if(guess == null){
+            throw new NullGuessException("Tried ot make fuess on game id" + gameId + "With a null guess.");
+//            return null; // we don't want to return nulls rn tho..
+       }
+        // in depth analysis:
+        // Create a nullGuessException
+
         if( guess.length() != 1){
             //TODO: make and throw a custom exception here
-            return null;
+            throw new InvalidGuessException(("A guess od" + guess+ "is too long."));
+            //return null;
         }
         if( gameId == null ){
+            throw new InvalidGameIdException("Missing game ID.");
             //TODO: make and throw a custom exception here
-            return null;
         }
         HangmanGame game = dao.getGameById(gameId);
         //we'll assume here that the dao gives us back a null
         //if there's no matching game
         if( game == null) {
-            return null;
+
+            throw new InvalidGameIdException("Could not find game with game ID: " + gameId);
+           // return null;
         }
         if (game.getWrongGuesses() >= 5) {
             return null;
@@ -79,5 +97,9 @@ public class HangmanService {
         toReturn.setGuessedLetters( game.getGuessedLetters() );
         toReturn.setWrongGuesses(game.getWrongGuesses());
         return toReturn;
+    }
+
+    public List<HangmanViewModel> getAllGames() {
+        return dao.getAllGames();
     }
 }

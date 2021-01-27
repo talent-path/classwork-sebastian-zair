@@ -22,6 +22,12 @@ public class HangmanGame {
         this.guessedLetters = guessedLetters;
     }
 
+    public HangmanGame(HangmanGame that){
+        this.gameId = gameId;
+        this.hiddenWord = that.hiddenWord;
+        this.guessedLetters = new ArrayList<>();
+    }
+
     public Integer getGameId() {
         return gameId;
     }
