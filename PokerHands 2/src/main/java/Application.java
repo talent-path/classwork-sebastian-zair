@@ -258,10 +258,11 @@ public class Application {
                     newCards.add(card);
                 }
                 ArrayList<Card> newPossibleHands = new ArrayList<>();
-                choose5Cards(newCards, 0, new ArrayList<>(), newPossibleHands);
+                //choose5Cards(newCards, 0, new ArrayList<>(), newPossibleHands);
             }
 
         }
+        throw new UnsupportedOperationException();
     }
 
 }
