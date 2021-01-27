@@ -86,7 +86,7 @@ public abstract class Character implements Chooser {
 
     public void attack(Character defender ){
 
-        defender.takeDamage(0);
+        defender.takeDamage(getWeapon().generateDamage());
         //throw new UnsupportedOperationException();
     }
 

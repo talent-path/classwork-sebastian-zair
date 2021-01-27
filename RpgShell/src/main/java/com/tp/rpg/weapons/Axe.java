@@ -10,9 +10,12 @@ public class Axe implements Weapon {
     }
 
     @Override
-    public int generateDamage() {
-        throw new UnsupportedOperationException();
+    public int generateDamage(int damage) {
+        return this.damage = damage;
+        //throw new UnsupportedOperationException();
     }
+
+
 
     @Override
     public boolean useWeapon() {

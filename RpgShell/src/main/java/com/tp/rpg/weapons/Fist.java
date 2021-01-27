@@ -10,9 +10,10 @@ public class Fist implements Weapon {
     }
 
     @Override
-    public int generateDamage() {
+    public int generateDamage(int damage) {
 
-        throw new UnsupportedOperationException();
+       this.damage = damage;
+        //throw new UnsupportedOperationException();
     }
 
     @Override
