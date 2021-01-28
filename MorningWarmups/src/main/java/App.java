@@ -4,16 +4,20 @@ public class App {
     public static void main(String[] args) {
 
         char[][] twoD = {
-                {'9', '.', '.', '.', '.', '.', '7', '.', '.',
+                        {'9', '.', '.', '.', '.', '.', '7', '.', '.',
                         '.', '.', '3', '.', '.', '.', '.', '3', '.',
                         '.', '4', '.', '.', '.', '.', '.', '.', '9',
                         '.', '.', '.', '.', '5', '.', '.', '.', '.',
                         '.', '.', '.', '.', '.', '.', '.', '.', '.',
                         '4', '.', '6', '.', '.', '7', '.', '.', '1',
                         '.', '5', '.', '.', '.', '.', '.', '8', '.',
-                        '.', '.', '.', '.', '.', '.', '.', '.', '3',}
+                        '.', '.', '.', '.', '.', '.', '.', '.', '3',
+                        '1', '.', '.', '7', '.', '2', '6', '.', '.'},
         };
-
+        for (int i = 0; i < twoD.length; i++) {
+            System.out.println(twoD[i].length);
+        }
+        System.out.println(twoD.length);
         System.out.println(isValidSudoku(twoD));
     }
 
@@ -254,8 +258,8 @@ public class App {
         boolean valid = true; // because we're checking if it's NOT valid'
 
         //iterate through entire cell
-        for (int row = 0; row < 9; row++) {
-            for (int col = 0; col < 9; col++) {
+        for (int row = 0; valid && row < 9; row++) {
+            for (int col = 0; valid && col < 9; col++) {
                 if (board[row][col] != '.') {
                     // check current row
                     //the current row
@@ -264,7 +268,7 @@ public class App {
                     int boxLeftC = col / 3 * 3;
 
 
-                    for (int i = 0; i < 9; i++) {
+                    for (int i = 0; valid && i < 9; i++) {
                         int boxR = bocTopR + i / 3;
                         int boxC = boxLeftC + i % 3;
 
@@ -276,23 +280,53 @@ public class App {
                         // need to make sure we're not looking
                         // at the current square
 
-                        if (i != col && board[row][i] == board[row][col]) {
+                        if ((row != boxR|| col != boxC) && (board[row][col] == board[boxR][boxC]))
                             valid = false;
-                        }
-                        if (i != row && board[i][col] == board[row][col]) {
+                        if (row != i && board[row][col] == board[i][col])
                             valid = false;
-                        }
-                        if ((boxR != row || boxC != col) && (board[boxR][boxC] == board[row][col])) {
+                        if (col != row && board[row][col] == board[row][i])
                             valid = false;
-                        }
+
+
                     }
                     // calculate for upper left corner of each 3x3 box
                     // utilized a spreadsheet to calculate for this
                 }
             }
+            return valid;
         }
         return valid;
     }
 
+    public void solveSudoku(char[][] board) {
 
+        // He said it was going to be a 'guess and check'
+        // would need to use recursion
+        if (isValidSudoku(board)) {
+            // if an element in a row != '.' we need to input a number
+            // if that number exists on the same row or column try another number
+            // if that number exists within the same 3x3 box try another number
+            for (int row = 0; row < 9; row++) {
+                for (int col = 0; col < 9; col++) {
+                    if (board[row].equals('.')) {
+                        board[row] = board[row];
+                        if (board[row] == board[row]) {
+                            board[row] = board[row + 1];
+                        }
+                    }
+                    if (board[col].equals('.')) {
+                        board[col] = board[col];
+                        if (board[col] == board[col]) {
+                            board[col] = board[col + 1];
+                        }
+
+                    }
+                }
+            }
+            // by the end of this class then a problem like this should be simple..
+
+
+
+        }
+    }
 }
