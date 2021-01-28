@@ -2,6 +2,7 @@ package com.tp.connectfour.services;
 
 import com.tp.connectfour.models.ConnectFourGame;
 import com.tp.connectfour.models.ConnectFourViewModel;
+import com.tp.connectfour.persistence.ConnectFourDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

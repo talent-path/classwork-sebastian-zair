@@ -15,7 +15,7 @@ public class ConnectFourInMemDao implements ConnectFourDao{
         allGames.add(game);
     }
     @Override
-    public Integer startGame() {
+    public int startGame() {
 
         int id = 0;
         ConnectFourGame toReturn = null;
@@ -30,5 +30,14 @@ public class ConnectFourInMemDao implements ConnectFourDao{
        // return null;
 
         return id;
+    }
+
+    public ConnectFourGame getGameByID(Integer gameId){
+        ConnectFourGame toReturn = null;
+        for(ConnectFourGame toCheck: allGames){
+            if(toCheck.getGameId().equals(gameId)){
+                toReturn = new ConnectFourGame(toCheck);
+            }
+        }
     }
 }

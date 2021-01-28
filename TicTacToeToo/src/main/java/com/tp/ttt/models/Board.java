@@ -4,6 +4,10 @@ public class Board {
 
     Square[] grid = new Square[9];
 
+    public Square[] getGrid() {
+        return grid;
+    }
+
     public Board() {
         // when you play tic tac toe the board will start out blank
         // instantiate so that this remains true..
@@ -49,5 +53,14 @@ public class Board {
         nextBoard.grid[position] = selectedMark;
 
         return nextBoard;
+    }
+
+
+    public boolean isOver() {
+        throw new UnsupportedOperationException();
+    }
+
+    public GameDecider getOutcome() {
+        throw new UnsupportedOperationException();
     }
 }
