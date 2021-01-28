@@ -5,7 +5,7 @@ import java.util.List;
 public class ConnectFourViewModel {
 
     private Integer gameId;
-    List<Integer> guessCoordinates;
+    private Character currentPlayer;
     char[][] gameBoard;
 
     public Integer getGameId(){
@@ -20,13 +20,19 @@ public class ConnectFourViewModel {
         return gameBoard;
     }
 
-    public List<Integer> getGuessCoordinates(){
-        return guessCoordinates;
+    public void setCurrentPlayer(Character currentPlayer) {
+        this.currentPlayer = currentPlayer;
     }
-
-    public void setGuessCoordinates(List<Integer> guessCoordinates) {
-        this.guessCoordinates = guessCoordinates;
+    public Character getCurrentPlayer() {
+        return this.currentPlayer;
     }
+//    public List<Integer> getGuessCoordinates(){
+//        return guessCoordinates;
+//    }
+//
+//    public void setGuessCoordinates(List<Integer> guessCoordinates) {
+//        this.guessCoordinates = guessCoordinates;
+//    }
 
     public void setGameBoard(char[][] gameBoard) {
         this.gameBoard = gameBoard;

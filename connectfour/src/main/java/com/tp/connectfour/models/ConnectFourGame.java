@@ -8,12 +8,16 @@ public class ConnectFourGame {
     private Integer gameId;
     private Integer chosenCol;
     private List<Integer> guessedCol;
+    private Character currentPlayer;
     private char[][] gameBoard;
 
-    public Integer getGameId() {
-        return gameId;
+    public Integer getGameId() { return gameId; }
+    public char[][] getGameBoard() {
+        return gameBoard;
     }
-
+    public Character getCurrentPlayer() {
+        return currentPlayer;
+    }
     public Integer getChosenCol() {
         return chosenCol;
     }
@@ -24,15 +28,34 @@ public class ConnectFourGame {
 
 
 
-    public ConnectFourGame(Integer gameId){
+    /**
+     * Main Constructor
+     * @param gameId
+     * @param currentPlayer
+     */
+    public ConnectFourGame(Integer gameId, Character currentPlayer){
         this.gameId = gameId;
-        //this.chosenCol = chosenCol;
+        this.currentPlayer = currentPlayer;
         guessedCol = new ArrayList<>();
-        gameBoard = new[6][7];
+        gameBoard = new char[6][7];
 
         for (int i = 0; i < gameBoard.length; i++) {
             for (int j = 0; j < gameBoard[0].length; j++) {
-                gameBoard[i][j] = '*';
+                gameBoard[i][j] = '_';
+            }
+        }
+    }
+
+    //copy constructor
+    public ConnectFourGame( ConnectFourGame that ){
+        this.gameId = that.gameId;
+        this.currentPlayer = that.currentPlayer;
+        guessedCol = new ArrayList<>();
+        gameBoard = new char[6][7];
+
+        for (int i = 0; i < gameBoard.length; i++) {
+            for (int j = 0; j < gameBoard[0].length; j++) {
+                gameBoard[i][j] = '_';
             }
         }
     }
