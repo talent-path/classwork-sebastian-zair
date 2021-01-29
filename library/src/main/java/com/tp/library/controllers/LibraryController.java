@@ -3,9 +3,7 @@ package com.tp.library.controllers;
 import com.tp.library.models.Book;
 import com.tp.library.services.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +20,8 @@ public class LibraryController {
     // @RequestBody takes in Objects from the HTTP request -
     //      -
 
+    // 5:34 PM TO:DO = test last 4 methods, and map last 4 methods :) 
+
     @Autowired // This acts as auto instantiation
     LibraryService service;
 
@@ -33,7 +33,7 @@ public class LibraryController {
        return toReturn;
 
     }
-
+    @GetMapping("/allbooks/")
     public List<Book> getAllBooks(){
 
         List<Book> listOfBooks = service.getAllBooks();
@@ -41,42 +41,42 @@ public class LibraryController {
         return listOfBooks;
 
     }
-
-    public List<Book> getBooksByTitle(String title){
+    @GetMapping("books/title/{title}")
+    public List<Book> getBooksByTitle(@PathVariable String title){
 
         List<Book> returnedTitle = service.getBooksByTitle(title);
         //throw new UnsupportedOperationException();
         return returnedTitle;
     }
-
+    //@GetMapping
     public List<Book> getBooksByAuthor(List<String> author){
 
         List<Book> returnedAuthor = service.getBooksByAuthor(author);
         //throw new UnsupportedOperationException();
         return returnedAuthor;
     }
-
+    //@GetMapping
     public List<Book> getBooksByYear(int year){
 
        List<Book> returnedYear = service.getBooksByYear(year);
        // throw new UnsupportedOperationException();
         return returnedYear;
     }
-
+    @GetMapping("book/bookid")
     public Book getBookByID(int bookID){
 
         Book bID = service.getBookByID(bookID);
         //throw new UnsupportedOperationException();
         return bID;
     }
+    //@DeleteMapping
+    public void deleteBookByID(int bookID){
 
-    public Book deleteBookByID(int bookID){
-
-        Book deletedBook = service.deleteBookByID(bookID);
+        service.deleteBookByID(bookID);
        // throw new UnsupportedOperationException();
-        return deletedBook;
-    }
 
+    }
+    //@PutMapping
     public Book updateBook(Book book){
 
         Book updatedBook = service.updateBook(book);

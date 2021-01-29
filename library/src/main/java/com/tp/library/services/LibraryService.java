@@ -1,6 +1,7 @@
 package com.tp.library.services;
 
 import com.tp.library.models.Book;
+import com.tp.library.persistence.LibraryDao;
 import com.tp.library.persistence.LibraryInMemDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,13 +12,14 @@ import java.util.List;
 public class LibraryService {
 
     @Autowired
-    LibraryInMemDao dao;
+    LibraryDao dao;
     public Book createBook(Book toCreate) {
 
         return dao.addBook(toCreate);
     }
 
     public List<Book> getAllBooks() {
+
         return dao.grabBookList();
     }
 
@@ -37,8 +39,8 @@ public class LibraryService {
        return dao.returnBookID(bookID);
     }
 
-    public Book deleteBookByID(int bookID) {
-        return dao.returnDeletedBook(bookID);
+    public void deleteBookByID(int bookID) {
+        dao.deleteBook(bookID);
     }
 
     public Book updateBook(Book book) {

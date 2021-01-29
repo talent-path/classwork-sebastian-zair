@@ -1,5 +1,6 @@
 package com.tp.library.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Book {
@@ -8,8 +9,10 @@ public class Book {
     // multiple authors
     List<String> authors;
     String publisher;
+    Integer bookID;
 
-    public Book(String title, List<String> authors, String publisher){
+    public Book(Integer bookID, String title, List<String> authors, String publisher){
+        this.bookID = bookID;
         this.title = title;
         this.authors = authors;
         this.publisher = publisher;
@@ -18,10 +21,14 @@ public class Book {
 
     }
 
+
+
     // represent the information in a book we WANT to copy..
     public Book(Book toCopy){
 
-        this.authors = toCopy.getAuthors();
+        this.bookID = toCopy.getBookID();
+        this.authors = new ArrayList<>();
+        this.authors.addAll(toCopy.getAuthors());
         this.title = toCopy.getTitle();
         this.publisher = toCopy.getPublisher();
 
@@ -49,6 +56,13 @@ public class Book {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+    public Integer getBookID() {
+        return bookID;
+    }
+
+    public void setBookID(Integer bookID) {
+        this.bookID = bookID;
     }
 
     // A book
