@@ -1,3 +1,4 @@
+import javax.swing.tree.TreeNode;
 import java.util.*;
 public class App {
 
@@ -327,6 +328,42 @@ public class App {
 
 
 
+        }
+    }
+
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     *     int val;
+     *     TreeNode left;
+     *     TreeNode right;
+     *     TreeNode() {}
+     *     TreeNode(int val) { this.val = val; }
+     *     TreeNode(int val, TreeNode left, TreeNode right) {
+     *         this.val = val;
+     *         this.left = left;
+     *         this.right = right;
+     *     }
+     * }
+     */
+    class Solution {
+        public int rangeSumBST(TreeNode root, int low, int high) {
+
+
+            // So we'll use RNG class for that low and high...
+            // within the root -
+            // grab elements between low and high inclusive
+            // sum the elements between low and high inclusive
+            // return the sum
+
+            int sum = 0;
+            if(root == null) return 0;
+
+            if(low <= root.val && root.val <= high){
+                sum = root.val;
+
+            }
+            return sum;
         }
     }
 }
