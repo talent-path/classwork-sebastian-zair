@@ -19,6 +19,9 @@ public class LibraryController {
     // Auto-generating methods all the way down from the top down level (controller to dao)
     // is a main cycle to pay attention to for the project
 
+    // @RequestBody takes in Objects from the HTTP request -
+    //      -
+
     @Autowired // This acts as auto instantiation
     LibraryService service;
 
@@ -32,31 +35,53 @@ public class LibraryController {
     }
 
     public List<Book> getAllBooks(){
-        throw new UnsupportedOperationException();
+
+        List<Book> listOfBooks = service.getAllBooks();
+
+        return listOfBooks;
+
     }
 
     public List<Book> getBooksByTitle(String title){
-        throw new UnsupportedOperationException();
+
+        List<Book> returnedTitle = service.getBooksByTitle(title);
+        //throw new UnsupportedOperationException();
+        return returnedTitle;
     }
 
-    public List<Book> getBooksByAuthor(String author){
-        throw new UnsupportedOperationException();
+    public List<Book> getBooksByAuthor(List<String> author){
+
+        List<Book> returnedAuthor = service.getBooksByAuthor(author);
+        //throw new UnsupportedOperationException();
+        return returnedAuthor;
     }
 
     public List<Book> getBooksByYear(int year){
-        throw new UnsupportedOperationException();
+
+       List<Book> returnedYear = service.getBooksByYear(year);
+       // throw new UnsupportedOperationException();
+        return returnedYear;
     }
 
     public Book getBookByID(int bookID){
-        throw new UnsupportedOperationException();
+
+        Book bID = service.getBookByID(bookID);
+        //throw new UnsupportedOperationException();
+        return bID;
     }
 
     public Book deleteBookByID(int bookID){
-        throw new UnsupportedOperationException();
+
+        Book deletedBook = service.deleteBookByID(bookID);
+       // throw new UnsupportedOperationException();
+        return deletedBook;
     }
 
     public Book updateBook(Book book){
-        throw new UnsupportedOperationException();
+
+        Book updatedBook = service.updateBook(book);
+        //throw new UnsupportedOperationException();
+        return updatedBook;
     }
 
     //

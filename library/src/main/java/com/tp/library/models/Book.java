@@ -18,6 +18,7 @@ public class Book {
 
     }
 
+    // represent the information in a book we WANT to copy..
     public Book(Book toCopy){
 
         this.authors = toCopy.getAuthors();
