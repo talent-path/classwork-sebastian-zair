@@ -24,9 +24,10 @@ public class ConnectFourServiceTests {
 
         List<ConnectFourViewModel> allGames = service.getAllGames();
 
-        for( ConnectFourViewModel toDelete : allGames ){
-            service.deleteGame( toDelete.getGameId() );
-        }
+        allGames.
+//        for( ConnectFourViewModel toDelete : allGames ){
+//            service.deleteGame( toDelete.getGameId() );
+//        }
     }
 
     @Test
