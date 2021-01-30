@@ -20,7 +20,7 @@ public class LibraryController {
     // @RequestBody takes in Objects from the HTTP request -
     //      -
 
-    // 5:34 PM TO:DO = test last 4 methods, and map last 4 methods :) 
+    // 5:34 PM TO:DO = test last 4 methods, and map last 4 methods :)
 
     @Autowired // This acts as auto instantiation
     LibraryService service;
@@ -55,7 +55,7 @@ public class LibraryController {
         //throw new UnsupportedOperationException();
         return returnedAuthor;
     }
-    //@GetMapping
+    @GetMapping("books/year")
     public List<Book> getBooksByYear(int year){
 
        List<Book> returnedYear = service.getBooksByYear(year);

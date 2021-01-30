@@ -69,7 +69,15 @@ public class LibraryInMemDao implements LibraryDao {
         // have a list that contains all books
         // if list contains the 'year' inputted, then add a book made that year to a new list
         // return that new list that has all of the books made in that year
-        throw new UnsupportedOperationException();
+        List<Book> booksByYear = new ArrayList<>();
+
+        for(Book bookYear: allBooks){
+            if(bookYear.getYear().equals(year)){
+                Book copy = new Book(bookYear);
+                booksByYear.add(copy);
+            }
+        }
+        return booksByYear;
 
     }
 

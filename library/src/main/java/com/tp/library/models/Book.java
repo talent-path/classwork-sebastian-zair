@@ -10,16 +10,19 @@ public class Book {
     List<String> authors;
     String publisher;
     Integer bookID;
+    Integer year;
 
-    public Book(Integer bookID, String title, List<String> authors, String publisher){
+    public Book(Integer bookID, String title, List<String> authors, String publisher, Integer year){
         this.bookID = bookID;
         this.title = title;
         this.authors = authors;
         this.publisher = publisher;
+        this.year = year;
 
         // must needs for  the book
 
     }
+
 
 
 
@@ -31,6 +34,7 @@ public class Book {
         this.authors.addAll(toCopy.getAuthors());
         this.title = toCopy.getTitle();
         this.publisher = toCopy.getPublisher();
+        this.year = toCopy.getYear();
 
     }
 
@@ -63,6 +67,13 @@ public class Book {
 
     public void setBookID(Integer bookID) {
         this.bookID = bookID;
+    }
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     // A book
