@@ -21,6 +21,7 @@ public class LibraryController {
     //      -
 
     // 5:34 PM TO:DO = test last 4 methods, and map last 4 methods :)
+    // 1:00 PM Jan 30 = test last 2 methods and map last 2 methods :)
 
     @Autowired // This acts as auto instantiation
     LibraryService service;
@@ -55,22 +56,22 @@ public class LibraryController {
         //throw new UnsupportedOperationException();
         return returnedAuthor;
     }
-    @GetMapping("books/year")
-    public List<Book> getBooksByYear(int year){
+    @GetMapping("books/year/{year}")
+    public List<Book> getBooksByYear(@PathVariable int year){
 
        List<Book> returnedYear = service.getBooksByYear(year);
        // throw new UnsupportedOperationException();
         return returnedYear;
     }
-    @GetMapping("book/bookid")
-    public Book getBookByID(int bookID){
+    @GetMapping("book/bookid/{bookID}")
+    public Book getBookByID(@PathVariable int bookID){
 
         Book bID = service.getBookByID(bookID);
         //throw new UnsupportedOperationException();
         return bID;
     }
-    //@DeleteMapping
-    public void deleteBookByID(int bookID){
+    @DeleteMapping("book/bookid/delete/{bookID}")
+    public void deleteBookByID(@PathVariable int bookID){
 
         service.deleteBookByID(bookID);
        // throw new UnsupportedOperationException();

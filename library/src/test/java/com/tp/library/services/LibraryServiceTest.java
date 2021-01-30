@@ -78,6 +78,12 @@ class LibraryServiceTest {
         // 12:30 PM Sat Jan 30
         // Successfully ran and completed my own test! :)
         List<Book> booksByYear = service.getBooksByYear(1997);
+        //int five = 5;
+    }
+
+    @Test
+    void deleteBook(){
+        service.deleteBookByID(2);
         int five = 5;
     }
 }
