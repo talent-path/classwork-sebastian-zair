@@ -43,8 +43,8 @@ public class LibraryService {
         dao.deleteBook(bookID);
     }
 
-    public Book updateBook(Book book) {
-        return dao.returnedUpdatedBook(book);
+    public Book updateBook(Integer bookID) {
+        return dao.returnedUpdatedBook(bookID);
     }
     // AML
     // all @Services are @Components

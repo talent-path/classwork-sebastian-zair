@@ -60,8 +60,18 @@ public class LibraryInMemDao implements LibraryDao {
         // have a list that contains all books
         // if list contains 'author' add that book to a new list
         // return that new list to represent books with that author
+        List<Book> authors = new ArrayList<>();
+        for(Book toCheck: allBooks){
+            if(toCheck.getAuthors().equals(author)){
+                    Book copy = new Book(toCheck);
+                //String copiedAuthors = toCheck.toString();
+                authors.add(copy);
+            }
+        }
 
-        throw new UnsupportedOperationException();
+        return authors;
+
+       // throw new UnsupportedOperationException();
     }
 
     @Override
@@ -106,13 +116,24 @@ public class LibraryInMemDao implements LibraryDao {
     }
 
     @Override
-    public Book returnedUpdatedBook(Book book) {
+    public Book returnedUpdatedBook(Integer bookID) {
         // have find the 'Book' in a list
         // if it is valid(not null)
         // set the book with the new data to be changed
         // return the updated book
-        throw new UnsupportedOperationException();
 
+//        Book updatedCopy;
+//        for(Book toCheck: allBooks){
+//            if(toCheck.getBookID().equals(bookID)){
+//                updatedCopy = new Book(toCheck);
+//                return updatedCopy;
+//                break;
+//            }
+//        }
+//        //return updatedCopy;
+//        //throw new UnsupportedOperationException();
+//        return toCheck;
+        throw new UnsupportedOperationException();
     }
 
     @Override

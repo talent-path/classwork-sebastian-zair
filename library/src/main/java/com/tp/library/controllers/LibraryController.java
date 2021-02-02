@@ -49,8 +49,8 @@ public class LibraryController {
         //throw new UnsupportedOperationException();
         return returnedTitle;
     }
-    //@GetMapping
-    public List<Book> getBooksByAuthor(List<String> author){
+    @GetMapping("books/author/{author}")
+    public List<Book> getBooksByAuthor(@PathVariable List<String> author){
 
         List<Book> returnedAuthor = service.getBooksByAuthor(author);
         //throw new UnsupportedOperationException();
@@ -77,10 +77,10 @@ public class LibraryController {
        // throw new UnsupportedOperationException();
 
     }
-    //@PutMapping
-    public Book updateBook(Book book){
+    @PutMapping("book/update/{bookID}")
+    public Book updateBook(@PathVariable Integer bookID){
 
-        Book updatedBook = service.updateBook(book);
+        Book updatedBook = service.updateBook(bookID);
         //throw new UnsupportedOperationException();
         return updatedBook;
     }

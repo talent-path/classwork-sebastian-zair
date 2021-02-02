@@ -20,7 +20,7 @@ public interface LibraryDao {
 
     void deleteBook(Integer bookID);
 
-    Book returnedUpdatedBook(Book book);
+    Book returnedUpdatedBook(Integer bookID);
 
     void clearDAO();
 }

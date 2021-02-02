@@ -86,4 +86,13 @@ class LibraryServiceTest {
         service.deleteBookByID(2);
         int five = 5;
     }
+
+    @Test
+    void getBooksByAuthor(){
+        List<String> newAuthors = new ArrayList<>();
+        Book booksBA = new Book(1, "Harry Potter and the Deadly Coding",newAuthors, "Penguin Publishing", 1997 );
+        List<Book> booksByAuthor = service.getBooksByAuthor(newAuthors);
+      //  assertEquals(booksBA.getAuthors().equals(newAuthors),newAuthors );
+        int four = 4;
+    }
 }

@@ -4,22 +4,10 @@ public class App {
 
     public static void main(String[] args) {
 
-        char[][] twoD = {
-                        {'9', '.', '.', '.', '.', '.', '7', '.', '.',
-                        '.', '.', '3', '.', '.', '.', '.', '3', '.',
-                        '.', '4', '.', '.', '.', '.', '.', '.', '9',
-                        '.', '.', '.', '.', '5', '.', '.', '.', '.',
-                        '.', '.', '.', '.', '.', '.', '.', '.', '.',
-                        '4', '.', '6', '.', '.', '7', '.', '.', '1',
-                        '.', '5', '.', '.', '.', '.', '.', '8', '.',
-                        '.', '.', '.', '.', '.', '.', '.', '.', '3',
-                        '1', '.', '.', '7', '.', '2', '6', '.', '.'},
-        };
-        for (int i = 0; i < twoD.length; i++) {
-            System.out.println(twoD[i].length);
-        }
-        System.out.println(twoD.length);
-        System.out.println(isValidSudoku(twoD));
+        int[] arr= {-1, 0, 2, 3, 6, 8, 9, 13, 17};
+        int target = 9;
+
+        System.out.println(search(arr, target));
     }
 
     public static boolean noTripples(int[] arr) {
@@ -331,21 +319,21 @@ public class App {
         }
     }
 
-    /**
-     * Definition for a binary tree node.
-     * public class TreeNode {
-     *     int val;
-     *     TreeNode left;
-     *     TreeNode right;
-     *     TreeNode() {}
-     *     TreeNode(int val) { this.val = val; }
-     *     TreeNode(int val, TreeNode left, TreeNode right) {
-     *         this.val = val;
-     *         this.left = left;
-     *         this.right = right;
-     *     }
-     * }
-     */
+
+     // Definition for a binary tree node.
+     public class TreeNode {
+          int val;
+          TreeNode left;
+          TreeNode right;
+          TreeNode() {}
+          TreeNode(int val) { this.val = val; }
+          TreeNode(int val, TreeNode left, TreeNode right) {
+             this.val = val;
+              this.left = left;
+              this.right = right;
+          }
+      }
+
     class Solution {
         public int rangeSumBST(TreeNode root, int low, int high) {
 
@@ -365,5 +353,58 @@ public class App {
             }
             return sum;
         }
+
+        public class ListNode {
+
+        int val;
+        ListNode next;
+
+     ListNode() {
+
+     }
+     ListNode(int val) {
+         this.val = val; }
+
+     ListNode(int val, ListNode next) {
+         this.val = val;
+         this.next = next; }
+  }
+
+        public ListNode reverseList(ListNode head) {
+        // a linked list will hold the value in the next position of itself
+            // now do that in reverse! :D
+
+            ListNode behind = null;
+            ListNode curr = head;
+            while (curr != null) {
+                ListNode temp = curr.next;
+                curr.next = behind;
+                behind = curr;
+                curr = temp;
+            }
+            return behind;
+
+
+
+        }
+    }
+
+    public static int search(int[] nums, int target) {
+
+
+        // the array you get is in order and ascending
+        // target represents the number we're supposed to find
+        // return type of int, meaning the index we find based on the target is what should be returned..
+
+        int index = -1;
+
+        int i = 0;
+        while(nums[i] != target){
+            if(nums[i] != target){
+                nums[i]
+            }
+        }
+
+        //return -1;
     }
 }
