@@ -4,23 +4,34 @@ import com.tp.library.models.Book;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class LibraryInMemDao implements LibraryDao {
 
-    List<Book> allBooks;
+    Map<Integer, Book> allBooks = new HashMap<>();
 
     public LibraryInMemDao(){
-        allBooks = new ArrayList<>();
+
     }
     //Book copyOfBook;
     @Override
     public Book addBook(Book toCreate) {
-        Book toAdd = new Book(toCreate);
-        allBooks.add(toAdd);
+        int nextId = 0;
+        for(Integer id: allBooks.keySet()){
+            if(id > nextId) nextId = id;
+        }
+        nextId++;
 
-        return toCreate;
+        Book copy = new Book(toCreate);
+        copy.setBookID(nextId);
+
+        allBooks.put(nextId, copy);
+
+        return new Book(copy);
+
     }
 
     @Override
@@ -28,16 +39,17 @@ public class LibraryInMemDao implements LibraryDao {
         // return every book that has been created
 
         List<Book> copyOfAllBooks = new ArrayList<Book>();
-        for(Book original: allBooks){
-            // Currently you're iterating through all current books that exist
-            // You need to get a copy of all current books that exist
-            // --- create a new objec- WAIT Perhaps I should create that copy Object OUTSIDE of the method like alBooks..
-            Book copyOfOriginal = new Book(original);
-            copyOfAllBooks.add(copyOfOriginal);
-        }
+//        for(Book original: allBooks){
+//            // Currently you're iterating through all current books that exist
+//            // You need to get a copy of all current books that exist
+//            // --- create a new objec- WAIT Perhaps I should create that copy Object OUTSIDE of the method like alBooks..
+//            Book copyOfOriginal = new Book(original);
+//            copyOfAllBooks.add(copyOfOriginal);
+//        }
         //copyOfAllBooks
 
-        return copyOfAllBooks;
+        throw new UnsupportedOperationException();
+        //return copyOfAllBooks;
     }
 
     @Override
@@ -46,30 +58,31 @@ public class LibraryInMemDao implements LibraryDao {
         // if list contains 'title' add that book to a new list
         // return that new list to represent books with that title
         List<Book> toReturn = new ArrayList<>();
-        for (Book toCheck : allBooks) {
-            if (toCheck.getTitle().equals(title)) {
-                // return the list of books that contain that title..
-                Book copy = new Book(toCheck);
-                toReturn.add(copy);
-            }
-        }
-        return toReturn;
+//        for (Book toCheck : allBooks) {
+//            if (toCheck.getTitle().equals(title)) {
+//                // return the list of books that contain that title..
+//                Book copy = new Book(toCheck);
+//                toReturn.add(copy);
+//            }
+//        }
+        throw new UnsupportedOperationException();
+      //  return toReturn;
     }
     @Override
-    public List<Book> returnAnAuthor(List<String> author) {
+    public List<Book> returnAnAuthor(String author) {
         // have a list that contains all books
         // if list contains 'author' add that book to a new list
         // return that new list to represent books with that author
-        List<Book> authors = new ArrayList<>();
-        for(Book toCheck: allBooks){
-            if(toCheck.getAuthors().equals(author)){
-                    Book copy = new Book(toCheck);
-                //String copiedAuthors = toCheck.toString();
-                authors.add(copy);
-            }
-        }
-
-        return authors;
+//        List<Book> authors = new ArrayList<>();
+//        for(Book toCheck: allBooks){
+//            if(toCheck.getAuthors().equals(author)){
+//                    Book copy = new Book(toCheck);
+//                //String copiedAuthors = toCheck.toString();
+//                authors.add(copy);
+//            }
+//        }
+        throw new UnsupportedOperationException();
+        //return authors;
 
        // throw new UnsupportedOperationException();
     }
@@ -81,13 +94,14 @@ public class LibraryInMemDao implements LibraryDao {
         // return that new list that has all of the books made in that year
         List<Book> booksByYear = new ArrayList<>();
 
-        for(Book bookYear: allBooks){
-            if(bookYear.getYear().equals(year)){
-                Book copy = new Book(bookYear);
-                booksByYear.add(copy);
-            }
-        }
-        return booksByYear;
+//        for(Book bookYear: allBooks){
+//            if(bookYear.getYear().equals(year)){
+//                Book copy = new Book(bookYear);
+//                booksByYear.add(copy);
+//            }
+//        }
+        throw new UnsupportedOperationException();
+       // return booksByYear;
 
     }
 
@@ -96,8 +110,8 @@ public class LibraryInMemDao implements LibraryDao {
         //have a list that contains all books
         // if that list contains the bookID (all IDs SHOULD be unique..?)
         // return the book with that ID
-        return allBooks.stream().filter( g -> g.getBookID().equals(bookID) ).findFirst().orElse(null);
-       // throw new UnsupportedOperationException();
+       // return allBooks.stream().filter( g -> g.getBookID().equals(bookID) ).findFirst().orElse(null);
+        throw new UnsupportedOperationException();
 
     }
 

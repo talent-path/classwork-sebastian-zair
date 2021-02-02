@@ -8,15 +8,15 @@ public class Book {
     String title;
     // multiple authors
     List<String> authors;
-    String publisher;
+    //String publisher;
     Integer bookID;
     Integer year;
 
-    public Book(Integer bookID, String title, List<String> authors, String publisher, Integer year){
+    public Book(Integer bookID, String title, List<String> authors, Integer year){
         this.bookID = bookID;
         this.title = title;
         this.authors = authors;
-        this.publisher = publisher;
+       // this.publisher = publisher;
         this.year = year;
 
         // must needs for  the book
@@ -33,7 +33,7 @@ public class Book {
         this.authors = new ArrayList<>();
         this.authors.addAll(toCopy.getAuthors());
         this.title = toCopy.getTitle();
-        this.publisher = toCopy.getPublisher();
+        //this.publisher = toCopy.getPublisher();
         this.year = toCopy.getYear();
 
     }
@@ -54,13 +54,10 @@ public class Book {
         this.authors = authors;
     }
 
-    public String getPublisher() {
-        return publisher;
-    }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
+
+    //public void setPublisher(String publisher) {
+
     public Integer getBookID() {
         return bookID;
     }

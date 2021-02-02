@@ -22,16 +22,16 @@ class LibraryServiceTest {
     @BeforeEach
     void setup(){
         List<String> authors = new ArrayList<>();
-        Book bookToCreate = new Book(1, "Harry Potter and the Deadly Coding",authors, "Penguin Publishing", 1997 );
+        Book bookToCreate = new Book(1, "Harry Potter and the Deadly Coding",authors, 1997 );
         service.createBook(bookToCreate);
         int three = 3;
 
         List<String> authors1 = new ArrayList<>();
-        Book bookToCreate1 = new Book(2, "Harry Potter and the Deadly Coding pt2",authors1, "Penguin Publishing2", 1997 );
+        Book bookToCreate1 = new Book(2, "Harry Potter and the Deadly Coding pt2",authors1, 1997 );
         service.createBook(bookToCreate1);
 
         List<String> authors2 = new ArrayList<>();
-        Book bookToCreate2 = new Book(3, "Harry Potter and the Deadly Coding pt3",authors2, "Penguin Publishing", 1995 );
+        Book bookToCreate2 = new Book(3, "Harry Potter and the Deadly Coding pt3",authors2, 1995 );
         service.createBook(bookToCreate2);
 
     }
@@ -39,16 +39,16 @@ class LibraryServiceTest {
     @Test
     void createBook() {
         List<String> authors = new ArrayList<>();
-        Book bookToCreate = new Book(1, "Harry Potter and the Deadly Coding",authors, "Penguin Publishing", 1997 );
+        Book bookToCreate = new Book(1, "Harry Potter and the Deadly Coding",authors, 1997 );
         service.createBook(bookToCreate);
         int three = 3;
 
         List<String> authors1 = new ArrayList<>();
-        Book bookToCreate1 = new Book(2, "Harry Potter and the Deadly Coding pt2",authors1, "Penguin Publishing2", 1997 );
+        Book bookToCreate1 = new Book(2, "Harry Potter and the Deadly Coding pt2",authors1, 1997 );
         service.createBook(bookToCreate1);
 
         List<String> authors2 = new ArrayList<>();
-        Book bookToCreate2 = new Book(3, "Harry Potter and the Deadly Coding pt3",authors2, "Penguin Publishing", 2001 );
+        Book bookToCreate2 = new Book(3, "Harry Potter and the Deadly Coding pt3",authors2, 2001 );
         service.createBook(bookToCreate2);
 
         assertEquals(service.getAllBooks().size(), 12);
@@ -90,8 +90,8 @@ class LibraryServiceTest {
     @Test
     void getBooksByAuthor(){
         List<String> newAuthors = new ArrayList<>();
-        Book booksBA = new Book(1, "Harry Potter and the Deadly Coding",newAuthors, "Penguin Publishing", 1997 );
-        List<Book> booksByAuthor = service.getBooksByAuthor(newAuthors);
+        Book booksBA = new Book(1, "Harry Potter and the Deadly Coding",newAuthors, 1997 );
+      //  List<Book> booksByAuthor = service.getBooksByAuthor(newAuthors);
       //  assertEquals(booksBA.getAuthors().equals(newAuthors),newAuthors );
         int four = 4;
     }

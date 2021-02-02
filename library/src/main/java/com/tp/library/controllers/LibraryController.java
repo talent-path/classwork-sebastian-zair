@@ -3,6 +3,7 @@ package com.tp.library.controllers;
 import com.tp.library.models.Book;
 import com.tp.library.services.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,11 +28,15 @@ public class LibraryController {
     LibraryService service;
 
     @GetMapping("/createbook/")
-    public Book createBook(@RequestBody Book toCreate){
-
+    public ResponseEntity createBook(@RequestBody Book toCreate){
+        // verify why we use ResponseEntity over the 'Book' object
+        // if there is an exception there will be no Book to return
        Book toReturn = service.createBook(toCreate);
 
-       return toReturn;
+       // also check for unsuccessful
+
+
+       return ResponseEntity.ok(toReturn);
 
     }
     @GetMapping("/allbooks/")
@@ -50,7 +55,7 @@ public class LibraryController {
         return returnedTitle;
     }
     @GetMapping("books/author/{author}")
-    public List<Book> getBooksByAuthor(@PathVariable List<String> author){
+    public List<Book> getBooksByAuthor(@PathVariable String author){
 
         List<Book> returnedAuthor = service.getBooksByAuthor(author);
         //throw new UnsupportedOperationException();

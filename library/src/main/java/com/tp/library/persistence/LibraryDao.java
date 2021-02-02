@@ -12,7 +12,7 @@ public interface LibraryDao {
 
     List<Book> returnATitle(String title);
 
-    List<Book> returnAnAuthor(List<String> author);
+    List<Book> returnAnAuthor(String author);
 
     List<Book> returnAYear(int year);
 

@@ -24,10 +24,11 @@ public class LibraryService {
     }
 
     public List<Book> getBooksByTitle(String title) {
+        // Create the logic for users in here
         return dao.returnATitle(title);
     }
 
-    public List<Book> getBooksByAuthor(List<String> author) {
+    public List<Book> getBooksByAuthor(String author) {
        return dao.returnAnAuthor(author);
     }
 
