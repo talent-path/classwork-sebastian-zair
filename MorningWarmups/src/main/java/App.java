@@ -395,16 +395,17 @@ public class App {
         // the array you get is in order and ascending
         // target represents the number we're supposed to find
         // return type of int, meaning the index we find based on the target is what should be returned..
-
-        int index = -1;
-
-        int i = 0;
-        while(nums[i] != target){
-            if(nums[i] != target){
-                nums[i]
-            }
-        }
-
-        //return -1;
+//
+//        int index = -1;
+//
+//        int i = 0;
+//        while(nums[i] != target){
+//            if(nums[i] != target){
+//                nums[i]
+//            }
+//        }
+//
+//        //return -1;
+        throw new UnsupportedOperationException();
     }
 }
