@@ -32,10 +32,16 @@ public class Book {
         this.bookID = toCopy.getBookID();
         this.authors = new ArrayList<>();
         this.authors.addAll(toCopy.getAuthors());
+        //this.authors = new ArrayList<>();
+        //this.authors.add(authors);
         this.title = toCopy.getTitle();
         //this.publisher = toCopy.getPublisher();
         this.year = toCopy.getYear();
 
+    }
+
+    public Book(){
+    // use default constructors for when you need data types to be represents as their default values (0, false, null)
     }
 
     public String getTitle() {
@@ -50,7 +56,8 @@ public class Book {
         return authors;
     }
 
-    public void setAuthors(List<String>  author) {
+    public void setAuthors(List<String>  authors) {
+
         this.authors = authors;
     }
 
