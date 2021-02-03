@@ -56,5 +56,14 @@ public class LibraryInMemDaoTest {
         Book returnedBook2 =  dao.addBook(bookTest2);
         assertEquals(2, returnedBook2.getBookID());
 
+        List<String> authors3 = new ArrayList<>();
+        authors3.add("Author 5");
+        authors3.add("Author 6");
+        Book bookTest3 = new Book("Book3", authors3, 1996);
+
+
+        Book returnedBook3 = dao.addBook(bookTest3);
+        assertEquals(3, returnedBook3.getBookID());
+
     }
 }

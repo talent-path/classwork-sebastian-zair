@@ -23,7 +23,16 @@ public class Book {
 
     }
 
+    public Book(String title, List<String> authors, Integer year){
+        this.bookID = bookID;
+        this.title = title;
+        this.authors = authors;
+        // this.publisher = publisher;
+        this.year = year;
 
+        // must needs for  the book
+
+    }
 
 
     // represent the information in a book we WANT to copy..
