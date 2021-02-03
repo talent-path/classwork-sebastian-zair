@@ -39,8 +39,22 @@ public class LibraryInMemDaoTest {
 
         // 2.) Act
        Book returnedBook =  dao.addBook(bookTest1);
+       // Book returnedBook2 =  dao.addBook(bookTest2);
         // 3.) Assert
         assertEquals(1, returnedBook.getBookID());
-        
+
+        Book bookTest2 = new Book();
+        bookTest1.setTitle("Book2");
+        bookTest1.setYear(2020);
+        List<String> authors2 = new ArrayList<>();
+        authors.add("Author3");
+        authors.add("Author4");
+
+        //Book returnedBook2 =  dao.addBook(bookTest2);
+
+        bookTest2.setAuthors(authors2);
+        Book returnedBook2 =  dao.addBook(bookTest2);
+        assertEquals(2, returnedBook2.getBookID());
+
     }
 }
