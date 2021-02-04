@@ -35,11 +35,12 @@ public class LibraryInMemDao implements LibraryDao {
     }
 
     @Override
-    public List<Book> grabBookList() {
+    public Map<Integer, Book> grabBookList() {
         // return every book that has been created
 
-        List<Book> copyOfAllBooks = new ArrayList<Book>();
-//        for(Book original: allBooks){
+        //List<Book> copyOfAllBooks = new ArrayList<Book>();
+        Map<Integer, Book> copyOfAllBooks = new HashMap<>();
+//        for(Integer id: allBooks){
 //            // Currently you're iterating through all current books that exist
 //            // You need to get a copy of all current books that exist
 //            // --- create a new objec- WAIT Perhaps I should create that copy Object OUTSIDE of the method like alBooks..

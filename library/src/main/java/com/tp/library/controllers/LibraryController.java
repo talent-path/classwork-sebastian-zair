@@ -40,11 +40,13 @@ public class LibraryController {
 
     }
     @GetMapping("/allbooks/")
-    public List<Book> getAllBooks(){
+    public ResponseEntity getAllBooks(){
 
         List<Book> listOfBooks = service.getAllBooks();
 
-        return listOfBooks;
+        return ResponseEntity.ok(listOfBooks);
+
+       // return listOfBooks;
 
     }
     @GetMapping("books/title/{title}")

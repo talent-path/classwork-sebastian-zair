@@ -408,4 +408,59 @@ public class App {
 //        //return -1;
         throw new UnsupportedOperationException();
     }
-}
+
+    class ListNode {
+      int val;
+      ListNode next;
+      ListNode(int x) {
+         val = x;
+          next = null;
+      }
+  }
+
+
+        public boolean hasCycle(ListNode head) {
+
+        // if there are to be no duplicates we can use a data structure..
+            // after researching a Set prevents duplicates.
+            // Create a Set of ListNode to use a hash set of the visible node
+            Set<ListNode> visibleNode = new HashSet<>();
+
+            //while the head node is not null, we'll check if the visible node contains the head node
+            // null would mean we've reached the end of the list
+            // if true return true
+            while (head != null) {
+                if (visibleNode.contains(head)) {
+                    return true;
+                }
+                // if the if-condition is not met we add the head to the visible node Set and
+                // continue this process until we reach the end of the list "null"
+                visibleNode.add(head);
+                head = head.next;
+            }
+            return false;
+        }
+
+    public ListNode swapPairs(ListNode head) {
+
+        // return the head.
+        // if head = {} return {}
+        // if head.size = 1, return [1];
+
+        ListNode tempNode = new ListNode(0);
+        tempNode.next = head;
+        ListNode currentNode = tempNode;
+        while(currentNode.next!= null && currentNode.next.next != null){
+            ListNode first_Node = currentNode.next;
+            ListNode second_Node = currentNode.next.next;
+            first_Node.next = second_Node.next;
+            currentNode.next =  second_Node;
+            currentNode.next.next =  first_Node;
+            currentNode = currentNode.next.next;
+
+        }
+        return tempNode.next;
+    }
+    }
+
+
