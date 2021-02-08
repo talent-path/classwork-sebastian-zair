@@ -20,7 +20,9 @@ public class LibraryService {
 
     public List<Book> getAllBooks() {
 
-        return dao.grabBookList();
+        //return dao.grabBookList();
+
+        throw new UnsupportedOperationException();
     }
 
     public List<Book> getBooksByTitle(String title) {

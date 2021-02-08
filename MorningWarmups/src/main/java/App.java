@@ -461,6 +461,89 @@ public class App {
         }
         return tempNode.next;
     }
+
+    public List<List<Integer>> permute(int[] nums) {
+
+        List<List<Integer>> listToReturn = new ArrayList<>();
+
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer>list2 = new ArrayList<>();
+
+        if(nums.length == 1){
+            for(int i = 0; i < nums.length; i++) {
+                list1.add(nums[i]);
+                listToReturn.add(list1);
+                //return listToReturn;
+            }
+            return listToReturn;
+        }
+        //return listToReturn;
+
+        else if(nums.length == 2){
+            for(int i = 0; i < nums.length; i++){
+                list1.add(nums[i]);
+
+            }
+            list2.add(list1.get(1));
+            list2.add(list1.get(0));
+            listToReturn.add(list1);
+            listToReturn.add(list2);
+
+            return listToReturn;
+        } else{
+            if(nums.length > 2){
+
+
+            }
+        }
+        return listToReturn;
+    }
+
+    public String minWindow(String s, String t) {
+
+        // given a String, return a substring with that's the smallest that ccontains the letters "ABC"
+        // s = String of random letters
+        // t = precise letters to base our randoms off of
+        // So we'll loop through s.
+        // we can create a String sub = s.substring(0, s.length()-1)
+        // I can cheat and use David's advise of basing the substring off the letters within 't'
+        // If I do then sub  = s.(letter in t, letter in t)
+        // return length of the substring.
+        // if another length is found and is smaller than that one, then replace that substring with the other
+        // so we'll need 4 varaibles, s, t, sub1, and sub2.
+
+        throw new UnsupportedOperationException();
+    }
+    public int minDays(int n) {
+
+        // You can eat 1 orange
+        // if the amount of oranges that are n is divisible by 2 then you can only eat n/2 oranges.. which means half.
+        // If the amount of oranges that are n is divisible by 3 then you can only eat 2/3 of the oranges..
+
+        // return the MINIMUM number of days to eat 'n' oranges..
+        // AKA what's the quickest number of days needed to eat all given oranges
+
+        int  numOfDays;
+        int orangesLeft = n;
+        int orange = 1;
+        while(orangesLeft != 0) {
+            if( n%2 != 0 && n%3 != 0){
+
+                orangesLeft -= orange;
+
+            }
+
+            else if(n%2 == 0){
+                orangesLeft = n/2;
+            }
+            else{
+                orangesLeft = 2 * (n%3);
+            }
+            orangesLeft--;
+
+        }
+        return orangesLeft;
+    }
     }
 
 
