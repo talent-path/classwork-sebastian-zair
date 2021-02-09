@@ -30,9 +30,50 @@ public class MorningWarmUps {
             else{
                 orangesLeft = 2 * (n%3);
             }
-git             orangesLeft--;
+            orangesLeft--;
 
         }
         return orangesLeft;
+    }
+
+    public boolean validTicTacToe(String[] board) {
+
+        int oCount = 0;
+        int xCount = 0;
+        String converted1 = board[0];
+        String converted2 = board[1];
+        String converted3 = board[2];
+
+        for(int i = 0; i < board.length; i++){
+            if(converted1.charAt(i) == 'O'){
+                oCount++;
+            }
+            if(converted2.charAt(i) == 'O'){
+                oCount++;
+            }
+            if(converted3.charAt(i) == 'O'){
+                oCount++;
+            }
+        }
+        for(int i = 0; i < board.length; i++){
+            if(converted1.charAt(i) == 'X'){
+                xCount++;
+            }
+            if(converted2.charAt(i) == 'X'){
+                xCount++;
+            }
+            if(converted3.charAt(i) == 'X'){
+                xCount++;
+            }
+        }
+        if(oCount > xCount){
+            return false;
+        }
+
+        if(xCount + 2 > oCount){
+            return false;
+        }
+
+        return true;
     }
 }
