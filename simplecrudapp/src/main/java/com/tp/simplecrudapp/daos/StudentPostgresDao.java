@@ -1,8 +1,11 @@
 package com.tp.simplecrudapp.daos;
 
+import com.tp.simplecrudapp.daos.mappers.IntegerMapper;
+import com.tp.simplecrudapp.daos.mappers.StudentMapper;
 import com.tp.simplecrudapp.models.College;
 import com.tp.simplecrudapp.models.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -12,10 +15,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Component
+@Profile({"production","daoTesting"})
 public class StudentPostgresDao implements StudentDao {
 
     @Autowired
-    JdbcTemplate template;
+    private JdbcTemplate template;
 
     @Override
     public List<Student> getAllStudents(){
@@ -32,7 +36,7 @@ public class StudentPostgresDao implements StudentDao {
 
         Integer studentId = template.queryForObject(
                 "INSERT INTO \"Students\" (\"studentName\", \"collegeId\") VALUES (?, ?) RETURNING \"studentId\";",
-                new StudentIdMapper(),
+                new IntegerMapper("StudentId"),
                 toAdd.getName(),
                 toAdd.getAssociatedCollege().getCollegeId()
         );
@@ -42,29 +46,7 @@ public class StudentPostgresDao implements StudentDao {
         return toAdd;
     }
 
-    class StudentMapper implements RowMapper<Student>{
 
-        @Override
-        public Student mapRow(ResultSet resultSet, int i) throws SQLException {
-            Student mappedStudent = new Student();
-            mappedStudent.setStudentId( resultSet.getInt("studentId") );
-            mappedStudent.setName( resultSet.getString( "studentName") );
 
-            College associatedCollege = new College();
-            associatedCollege.setCollegeId( resultSet.getInt("collegeId") );
-            associatedCollege.setCollegeName( resultSet.getString( "collegeName"));
 
-            mappedStudent.setAssociatedCollege(associatedCollege);
-
-            return mappedStudent;
-        }
-    }
-
-    class StudentIdMapper implements RowMapper<Integer>{
-
-        @Override
-        public Integer mapRow(ResultSet resultSet, int i) throws SQLException {
-            return resultSet.getInt("StudentId");
-        }
-    }
 }

@@ -1,8 +1,11 @@
 package com.tp.simplecrudapp.daos;
 
+import com.tp.simplecrudapp.daos.mappers.CollegeMapper;
+import com.tp.simplecrudapp.daos.mappers.PartialStudentMapper;
 import com.tp.simplecrudapp.models.College;
 import com.tp.simplecrudapp.models.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -12,9 +15,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Component
+@Profile({"production","daoTesting"})
 public class CollegePostgresDao implements  CollegeDao {
     @Autowired
-    JdbcTemplate template;
+    private JdbcTemplate template;
 
     @Override
     public College getById(Integer collegeId) {
@@ -44,29 +48,7 @@ public class CollegePostgresDao implements  CollegeDao {
         return allStudents;
     }
 
-    class PartialStudentMapper implements RowMapper<Student>{
-
-        @Override
-        public Student mapRow(ResultSet resultSet, int i) throws SQLException {
-            Student toReturn = new Student();
-            toReturn.setName( resultSet.getString("studentName"));
-            toReturn.setStudentId( resultSet.getInt("studentId"));
-
-            return toReturn;
-        }
-    }
-
-    class CollegeMapper implements RowMapper<College>{
 
 
-        @Override
-        public College mapRow(ResultSet resultSet, int i) throws SQLException {
-            College toReturn = new College();
 
-            toReturn.setCollegeId( resultSet.getInt("collegeId") );
-            toReturn.setCollegeName(resultSet.getString("collegeName"));
-
-            return toReturn;
-        }
-    }
 }
