@@ -20,7 +20,7 @@ public class BestUSLocationsPostgresDao implements BestUSLocationsDao{
     @Override
     public List<Location> getAllLocations(){
 
-        List<Location> allLocations = template.query("SELECT *\n" +
+        List<Location> allLocations = template.query("SELECT \"locationName\", \"cities\", \"states\"\n" +
                 "FROM \"Locations\"", new LocationMapper());
 
             return allLocations;
@@ -33,6 +33,8 @@ public class BestUSLocationsPostgresDao implements BestUSLocationsDao{
             Location mappedLocation = new Location();
             mappedLocation.setLocationID(resultSet.getInt("locationID"));
             mappedLocation.setLocationName(resultSet.getString("locationName"));
+            mappedLocation.setCity(resultSet.getString("cities"));
+            mappedLocation.setCity(resultSet.getString("states"));
 
             return mappedLocation;
 
