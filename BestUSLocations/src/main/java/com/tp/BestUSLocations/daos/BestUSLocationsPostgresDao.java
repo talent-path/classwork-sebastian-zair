@@ -1,6 +1,7 @@
 package com.tp.BestUSLocations.daos;
 
 import com.tp.BestUSLocations.models.Location;
+import com.tp.BestUSLocations.models.State;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -18,25 +19,25 @@ public class BestUSLocationsPostgresDao implements BestUSLocationsDao{
     JdbcTemplate template;
 
     @Override
-    public List<Location> getAllLocations(){
+    public List<State> getAllLocations(){
 
-        List<Location> allLocations = template.query("SELECT \"locationName\", \"cities\", \"states\"\n" +
-                "FROM \"Locations\"", new LocationMapper());
+        List<State> allStates = template.query("SELECT * \n" +
+                "FROM \"States\"", new StateMapper());
 
-            return allLocations;
+            return allStates;
     }
 
-    class LocationMapper implements RowMapper<Location>{
+    class StateMapper implements RowMapper<State>{
 
         @Override
-        public Location mapRow(ResultSet resultSet, int i) throws SQLException {
-            Location mappedLocation = new Location();
-            mappedLocation.setLocationID(resultSet.getInt("locationID"));
-            mappedLocation.setLocationName(resultSet.getString("locationName"));
-            mappedLocation.setCity(resultSet.getString("cities"));
-            mappedLocation.setCity(resultSet.getString("states"));
+        public State mapRow(ResultSet resultSet, int i) throws SQLException {
+            State mappedState = new State();
+            mappedState.setStateID(resultSet.getInt("stateID"));
+            mappedState.setStateName(resultSet.getString("stateName"));
+            mappedState.setStateAbrv(resultSet.getString("stateAbrv"));
 
-            return mappedLocation;
+
+            return mappedState;
 
         }
     }

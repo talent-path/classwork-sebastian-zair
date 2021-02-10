@@ -1,6 +1,7 @@
 package com.tp.BestUSLocations.controllers;
 
 import com.tp.BestUSLocations.models.Location;
+import com.tp.BestUSLocations.models.State;
 import com.tp.BestUSLocations.services.BestUSLocationsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +18,9 @@ public class BestUSLocationsController {
     @Autowired
     BestUSLocationsService service;
 
-    @GetMapping("/locations")
-    public ResponseEntity<List<Location>> allLocations(){
-        List<Location> al = service.getAllLocations();
+    @GetMapping("/states")
+    public ResponseEntity<List<State>> allLocations(){
+        List<State> al = service.getAllLocations();
 
         return ResponseEntity.ok(al);
 
