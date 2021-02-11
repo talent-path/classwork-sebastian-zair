@@ -25,4 +25,5 @@ public class BestUSLocationsController {
         return ResponseEntity.ok(as);
 
     }
+
 }
