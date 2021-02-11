@@ -27,11 +27,15 @@ public class StatePostgresDao implements StateDao {
 
     @Override
     public State getSelectedState(State selected) {
+        // serve as a reminder
         return null;
     }
 
     @Override
     public State getStateByName(State name) {
+        // go on and get the name of your state
+        // if you can not do this it's because you do not have a field variable that will let you
+        // so if you have not already done so please be sure to get that field variable
         return null;
     }
 
