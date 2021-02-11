@@ -19,10 +19,10 @@ public class BestUSLocationsController {
     BestUSLocationsService service;
 
     @GetMapping("/states")
-    public ResponseEntity<List<State>> allLocations(){
-        List<State> al = service.getAllLocations();
+    public ResponseEntity<List<State>> allStates(){
+        List<State> as = service.getAllStates();
 
-        return ResponseEntity.ok(al);
+        return ResponseEntity.ok(as);
 
     }
 }

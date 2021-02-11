@@ -14,7 +14,7 @@ public class BestUSLocationsService {
     @Autowired
     BestUSLocationsDao dao;
 
-    public List<State> getAllLocations(){
-        return dao.getAllLocations();
+    public List<State> getAllStates(){
+        return dao.getAllStates();
     }
 }

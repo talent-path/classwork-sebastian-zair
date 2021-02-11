@@ -19,7 +19,7 @@ public class BestUSLocationsPostgresDao implements BestUSLocationsDao{
     JdbcTemplate template;
 
     @Override
-    public List<State> getAllLocations(){
+    public List<State> getAllStates(){
 
         List<State> allStates = template.query("SELECT * \n" +
                 "FROM \"States\"", new StateMapper());

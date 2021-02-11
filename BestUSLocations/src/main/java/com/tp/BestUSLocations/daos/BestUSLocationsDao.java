@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface BestUSLocationsDao {
 
-    public List<State> getAllLocations();
+    public List<State> getAllStates();
 
 }
