@@ -1,6 +1,5 @@
 package com.tp.BestUSLocations.controllers;
 
-import com.tp.BestUSLocations.models.Location;
 import com.tp.BestUSLocations.models.State;
 import com.tp.BestUSLocations.services.BestUSLocationsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,13 @@ public class StateController {
 
         return ResponseEntity.ok(as);
 
+    }
+
+    @GetMapping("/state")
+    public ResponseEntity<State> selectState(State selected){
+        State selectedState = service.getSelectedState(selected);
+
+        return ResponseEntity.ok(selectedState);
     }
 
 }

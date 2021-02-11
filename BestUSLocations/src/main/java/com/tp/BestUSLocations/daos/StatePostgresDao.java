@@ -1,6 +1,5 @@
 package com.tp.BestUSLocations.daos;
 
-import com.tp.BestUSLocations.models.Location;
 import com.tp.BestUSLocations.models.State;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -9,11 +8,10 @@ import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class BestUSLocationsPostgresDao implements BestUSLocationsDao{
+public class StatePostgresDao implements StateDao {
 
     @Autowired
     JdbcTemplate template;
@@ -25,6 +23,11 @@ public class BestUSLocationsPostgresDao implements BestUSLocationsDao{
                 "FROM \"States\"", new StateMapper());
 
             return allStates;
+    }
+
+    @Override
+    public State getSelectedState(State selected) {
+        return null;
     }
 
     class StateMapper implements RowMapper<State>{
