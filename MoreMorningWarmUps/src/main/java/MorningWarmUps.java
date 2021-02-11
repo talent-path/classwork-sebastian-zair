@@ -76,4 +76,26 @@ public class MorningWarmUps {
 
         return true;
     }
+
+    public int islandPerimeter(int[][] grid) {
+
+        int count = 0;
+        int row = grid.length;
+        int col = grid[0].length;
+
+        for(int i=0;i<row;i++)
+            for(int j=0;j<col;j++)
+                if(grid[i][j] == 1){
+                    if(j-1 == -1 || grid[i][j-1] == 0) // check the left side
+                        count++;
+                    if(i-1 == -1 || grid[i-1][j] == 0)  // check the top side
+                        count++;
+                    if(j+1 == col || grid[i][j+1] == 0)   // check the right side
+                        count++;
+                    if(i+1 == row || grid[i+1][j] == 0)  // check the down side
+                        count++;
+                }
+
+        return count;
+    }
 }
