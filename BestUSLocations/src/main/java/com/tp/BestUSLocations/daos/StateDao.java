@@ -10,4 +10,6 @@ public interface StateDao {
     public List<State> getAllStates();
 
     State getSelectedState(State selected);
+
+    State getStateByName(State name);
 }

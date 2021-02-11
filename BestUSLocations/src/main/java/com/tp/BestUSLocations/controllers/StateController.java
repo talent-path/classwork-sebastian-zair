@@ -32,4 +32,11 @@ public class StateController {
         return ResponseEntity.ok(selectedState);
     }
 
+    @GetMapping("/statename")
+    public ResponseEntity<State> stateByName(State name){
+        State stateName = service.getStateByName(name);
+
+        return ResponseEntity.ok(stateName);
+    }
+
 }

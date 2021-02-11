@@ -30,6 +30,11 @@ public class StatePostgresDao implements StateDao {
         return null;
     }
 
+    @Override
+    public State getStateByName(State name) {
+        return null;
+    }
+
     class StateMapper implements RowMapper<State>{
 
         @Override

@@ -20,4 +20,8 @@ public class BestUSLocationsService {
     public State getSelectedState(State selected) {
         return dao.getSelectedState(selected);
     }
+
+    public State getStateByName(State name) {
+       return dao.getStateByName(name);
+    }
 }
