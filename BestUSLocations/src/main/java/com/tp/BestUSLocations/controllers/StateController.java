@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class BestUSLocationsController {
+public class StateController {
 
     @Autowired
     BestUSLocationsService service;

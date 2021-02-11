@@ -10,6 +10,7 @@ public class City {
         return cityID;
     }
 
+
     public void setCityID(Integer cityID) {
         this.cityID = cityID;
     }
