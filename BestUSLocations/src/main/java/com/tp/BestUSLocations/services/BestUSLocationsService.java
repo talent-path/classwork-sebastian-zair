@@ -24,4 +24,8 @@ public class BestUSLocationsService {
     public State getStateByName(State name) {
        return dao.getStateByName(name);
     }
+
+    public State getStateById(State id) {
+        return dao.getStateById(id);
+    }
 }

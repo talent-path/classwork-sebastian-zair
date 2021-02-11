@@ -39,4 +39,10 @@ public class StateController {
         return ResponseEntity.ok(stateName);
     }
 
+    @GetMapping("/stateid")
+    public ResponseEntity<State> stateByID(State id){
+        State stateID = service.getStateById(id);
+
+        return ResponseEntity.ok(stateID);
+    }
 }
