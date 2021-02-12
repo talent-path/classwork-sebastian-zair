@@ -63,7 +63,12 @@ public class StatePostgresDao implements StateDao {
 
     @Override
     public State getStateByAbrv(String abrv) {
-        return null;
+        State statesAbrv = template.queryForObject("SELECT *\n" +
+                "FROM \"States\" s\n" +
+                "WHERE s.\"stateAbrv\" = '" + abrv +"'", new StateMapper());
+        //String statesName = name.getStateName();
+
+        return statesAbrv;
     }
 
     class StateMapper implements RowMapper<State>{
