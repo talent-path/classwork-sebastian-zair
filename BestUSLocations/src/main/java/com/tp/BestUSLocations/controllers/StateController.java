@@ -40,14 +40,14 @@ public class StateController {
         return ResponseEntity.ok(stateName);
     }
 
-    @GetMapping("/stateid")
-    public ResponseEntity<State> stateByID(Integer id){
+    @GetMapping("/stateid/{id}")
+    public ResponseEntity<State> stateByID(@PathVariable Integer id){
         State stateID = service.getStateById(id);
 
         return ResponseEntity.ok(stateID);
     }
-    @GetMapping("/stateabrv")
-    public ResponseEntity<State> stateByAbrv(String abrv){
+    @GetMapping("/stateabrv/{abrv}")
+    public ResponseEntity<State> stateByAbrv(@PathVariable String abrv){
        State abrvState = service.getStateByAbrv(abrv);
 
        return ResponseEntity.ok(abrvState);

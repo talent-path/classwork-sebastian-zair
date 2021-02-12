@@ -51,7 +51,14 @@ public class StatePostgresDao implements StateDao {
         // obtain the ID of a State..
         // grab State id through its field variable
         // WHICH ID? That's for the parameter to decide!
-        return null;
+
+        State statesName = template.queryForObject("SELECT *\n" +
+                "FROM \"States\" s\n" +
+                "WHERE s.\"stateName\" = '" + id +"'", new StateMapper());
+        //String statesName = name.getStateName();
+
+        return statesName;
+
     }
 
     @Override
