@@ -11,7 +11,7 @@ public interface StateDao {
 
     State getSelectedState(State selected);
 
-    State getStateByName(State name);
+    State getStateByName(String name);
 
     State getStateById(State id);
 

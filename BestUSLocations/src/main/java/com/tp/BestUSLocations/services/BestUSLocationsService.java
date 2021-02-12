@@ -21,7 +21,7 @@ public class BestUSLocationsService {
         return dao.getSelectedState(selected);
     }
 
-    public State getStateByName(State name) {
+    public State getStateByName(String name) {
        return dao.getStateByName(name);
     }
 

@@ -32,11 +32,18 @@ public class StatePostgresDao implements StateDao {
     }
 
     @Override
-    public State getStateByName(State name) {
+    public State getStateByName(String name) {
         // go on and get the name of your state
         // if you can not do this it's because you do not have a field variable that will let you
         // so if you have not already done so please be sure to get that field variable
-        return null;
+
+       State statesName = template.queryForObject("SELECT s.\"stateName\"\n" +
+                "FROM \"States\" s\n" +
+                "WHERE s.\"stateName\" = '" + name.equalsIgnoreCase(name) + "'", new StateMapper());
+        //String statesName = name.getStateName();
+
+        return statesName;
+
     }
 
     @Override

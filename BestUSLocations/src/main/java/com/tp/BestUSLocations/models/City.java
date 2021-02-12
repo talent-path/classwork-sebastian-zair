@@ -31,7 +31,6 @@ public class City {
         this.state = state;
     }
 
-    State state2 = new State();
-    state2.getStateID();
+
 
 }
