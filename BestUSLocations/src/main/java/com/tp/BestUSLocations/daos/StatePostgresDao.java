@@ -37,9 +37,9 @@ public class StatePostgresDao implements StateDao {
         // if you can not do this it's because you do not have a field variable that will let you
         // so if you have not already done so please be sure to get that field variable
 
-       State statesName = template.queryForObject("SELECT s.\"stateName\"\n" +
-                "FROM \"States\" s\n" +
-                "WHERE s.\"stateName\" = '" + name.equalsIgnoreCase(name) + "'", new StateMapper());
+       State statesName = template.queryForObject("SELECT *\n" +
+               "FROM \"States\" s\n" +
+               "WHERE s.\"stateName\" = '" + name +"'", new StateMapper());
         //String statesName = name.getStateName();
 
         return statesName;
@@ -47,7 +47,7 @@ public class StatePostgresDao implements StateDao {
     }
 
     @Override
-    public State getStateById(State id) {
+    public State getStateById(Integer id) {
         // obtain the ID of a State..
         // grab State id through its field variable
         // WHICH ID? That's for the parameter to decide!
@@ -55,7 +55,7 @@ public class StatePostgresDao implements StateDao {
     }
 
     @Override
-    public State getStateByAbrv(State abrv) {
+    public State getStateByAbrv(String abrv) {
         return null;
     }
 

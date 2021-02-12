@@ -41,13 +41,13 @@ public class StateController {
     }
 
     @GetMapping("/stateid")
-    public ResponseEntity<State> stateByID(State id){
+    public ResponseEntity<State> stateByID(Integer id){
         State stateID = service.getStateById(id);
 
         return ResponseEntity.ok(stateID);
     }
     @GetMapping("/stateabrv")
-    public ResponseEntity<State> stateByAbrv(State abrv){
+    public ResponseEntity<State> stateByAbrv(String abrv){
        State abrvState = service.getStateByAbrv(abrv);
 
        return ResponseEntity.ok(abrvState);

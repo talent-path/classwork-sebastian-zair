@@ -25,11 +25,11 @@ public class BestUSLocationsService {
        return dao.getStateByName(name);
     }
 
-    public State getStateById(State id) {
+    public State getStateById(Integer id) {
         return dao.getStateById(id);
     }
 
-    public State getStateByAbrv(State abrv) {
+    public State getStateByAbrv(String abrv) {
         return dao.getStateByAbrv(abrv);
     }
 }

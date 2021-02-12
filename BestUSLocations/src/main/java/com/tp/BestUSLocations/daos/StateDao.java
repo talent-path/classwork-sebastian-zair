@@ -13,7 +13,7 @@ public interface StateDao {
 
     State getStateByName(String name);
 
-    State getStateById(State id);
+    State getStateById(Integer id);
 
-    State getStateByAbrv(State abrv);
+    State getStateByAbrv(String abrv);
 }
