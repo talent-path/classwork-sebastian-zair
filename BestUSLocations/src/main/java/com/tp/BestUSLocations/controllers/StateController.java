@@ -45,4 +45,10 @@ public class StateController {
 
         return ResponseEntity.ok(stateID);
     }
+    @GetMapping("/stateabrv")
+    public ResponseEntity<State> stateByAbrv(State abrv){
+       State abrvState = service.getStateByAbrv(abrv);
+
+       return ResponseEntity.ok(abrvState);
+    }
 }

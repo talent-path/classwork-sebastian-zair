@@ -4,7 +4,7 @@ public class City {
 
     Integer cityID;
     String cityName;
-    State stateID;
+    State state;
 
     public Integer getCityID() {
         return cityID;
@@ -23,13 +23,15 @@ public class City {
         this.cityName = cityName;
     }
 
-    public State getStateID() {
-        return stateID;
+    public State getState() {
+        return state;
     }
 
-    public void setStateID(State stateID) {
-        this.stateID = stateID;
+    public void setState(State state) {
+        this.state = state;
     }
 
+    State state2 = new State();
+    state2.getStateID();
 
 }

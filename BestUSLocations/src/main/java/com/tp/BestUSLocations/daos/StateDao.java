@@ -14,4 +14,6 @@ public interface StateDao {
     State getStateByName(State name);
 
     State getStateById(State id);
+
+    State getStateByAbrv(State abrv);
 }

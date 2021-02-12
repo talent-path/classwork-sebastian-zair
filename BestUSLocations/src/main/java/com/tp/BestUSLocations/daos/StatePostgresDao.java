@@ -41,6 +41,14 @@ public class StatePostgresDao implements StateDao {
 
     @Override
     public State getStateById(State id) {
+        // obtain the ID of a State..
+        // grab State id through its field variable
+        // WHICH ID? That's for the parameter to decide!
+        return null;
+    }
+
+    @Override
+    public State getStateByAbrv(State abrv) {
         return null;
     }
 
