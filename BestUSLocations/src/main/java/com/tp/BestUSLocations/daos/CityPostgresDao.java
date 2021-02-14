@@ -35,6 +35,15 @@ public class CityPostgresDao implements CityDao{
         return allCitiesInStateByName;
     }
 
+    @Override
+    public List<City> getAllStateByStateAbrv(String stateAbrv) {
+        List<City>  allCitiesInStateByAbrv = template.query("SELECT *\n" +
+                "FROM \"Cities\" c JOIN \"States\" s ON c.\"stateID\" = s.\"stateID\"\n" +
+                "WHERE s.\"stateAbrv\" = '" + stateAbrv + "'", new CityMapper());
+
+        return allCitiesInStateByAbrv;
+    }
+
     public class CityMapper implements RowMapper<City> {
 
         @Override

@@ -33,4 +33,12 @@ public class CityController {
 
         return ResponseEntity.ok(statesName);
     }
+
+    @GetMapping("/cities/byabrv/{stateAbrv}")
+    public ResponseEntity<List<City>> getAllCitiesByStateAbrv(@PathVariable String stateAbrv){
+
+        List<City> statesAbrv = service.getAllStatesByStateAbrv(stateAbrv);
+
+        return ResponseEntity.ok(statesAbrv);
+    }
 }
