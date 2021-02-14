@@ -41,4 +41,8 @@ public class BestUSLocationsService {
     public List<City> getAllCitiesByStateID(Integer stateID) {
         return citydao.getAllCitiesByStateID(stateID);
     }
+
+    public List<City> getAllCitiesByStateName(String stateName) {
+        return citydao.getAllCitiesByStateName(stateName);
+    }
 }

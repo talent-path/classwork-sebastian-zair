@@ -25,4 +25,12 @@ public class CityController {
 
         return ResponseEntity.ok(citiesInState);
     }
+
+    @GetMapping("/cities/byname/{stateName}") // ask how to have similar parameters but differnt values for the URL mapping..
+    public ResponseEntity<List<City>> getAllCitiesByStateName(@PathVariable String stateName){
+
+        List<City> statesName = service.getAllCitiesByStateName(stateName);
+
+        return ResponseEntity.ok(statesName);
+    }
 }
