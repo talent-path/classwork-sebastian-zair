@@ -2,7 +2,9 @@ package com.tp.BestUSLocations.daos;
 
 import com.tp.BestUSLocations.models.City;
 
+import java.util.List;
+
 public interface CityDao {
 
-    public City getCitiesByState();
+    public List<City> getAllCitiesByStateID(Integer stateID);
 }

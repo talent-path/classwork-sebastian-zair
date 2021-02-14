@@ -1,5 +1,6 @@
 package com.tp.BestUSLocations.daos;
 
+import com.tp.BestUSLocations.models.City;
 import com.tp.BestUSLocations.models.Location;
 import com.tp.BestUSLocations.models.State;
 

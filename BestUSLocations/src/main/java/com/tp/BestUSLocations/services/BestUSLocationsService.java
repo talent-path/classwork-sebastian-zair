@@ -1,6 +1,8 @@
 package com.tp.BestUSLocations.services;
 
+import com.tp.BestUSLocations.daos.CityDao;
 import com.tp.BestUSLocations.daos.StateDao;
+import com.tp.BestUSLocations.models.City;
 import com.tp.BestUSLocations.models.State;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,25 +13,32 @@ import java.util.List;
 public class BestUSLocationsService {
 
     @Autowired
-    StateDao dao;
+    StateDao statedao;
+
+    @Autowired
+    CityDao citydao;
 
     public List<State> getAllStates(){
-        return dao.getAllStates();
+        return statedao.getAllStates();
     }
 
     public State getSelectedState(State selected) {
-        return dao.getSelectedState(selected);
+        return statedao.getSelectedState(selected);
     }
 
     public State getStateByName(String name) {
-       return dao.getStateByName(name);
+       return statedao.getStateByName(name);
     }
 
     public State getStateById(Integer id) {
-        return dao.getStateById(id);
+        return statedao.getStateById(id);
     }
 
     public State getStateByAbrv(String abrv) {
-        return dao.getStateByAbrv(abrv);
+        return statedao.getStateByAbrv(abrv);
+    }
+
+    public List<City> getAllCitiesByStateID(Integer stateID) {
+        return citydao.getAllCitiesByStateID(stateID);
     }
 }
