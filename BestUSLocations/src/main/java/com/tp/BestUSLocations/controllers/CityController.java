@@ -18,7 +18,7 @@ public class CityController {
     @Autowired
     BestUSLocationsService service;
 
-    @GetMapping("/cities")
+    @GetMapping("/cities/{stateID}")
     public ResponseEntity<List<City>> getAllCitiesByStateID(@PathVariable Integer stateID){
 
         List<City> citiesInState = service.getAllCitiesByStateID(stateID);
