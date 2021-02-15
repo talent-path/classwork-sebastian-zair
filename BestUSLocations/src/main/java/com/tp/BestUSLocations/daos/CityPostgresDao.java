@@ -44,6 +44,15 @@ public class CityPostgresDao implements CityDao{
         return allCitiesInStateByAbrv;
     }
 
+    @Override
+    public City getCityDetailsByName(String cityName) {
+        City cityDetesByName = template.queryForObject("SELECT *\n" +
+                "FROM \"Cities\" c\n" +
+                "WHERE c.\"cityName\" = '" + cityName + "'", new CityMapper());
+
+        return cityDetesByName;
+    }
+
     public class CityMapper implements RowMapper<City> {
 
         @Override

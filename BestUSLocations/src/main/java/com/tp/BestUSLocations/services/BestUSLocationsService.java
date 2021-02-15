@@ -49,4 +49,8 @@ public class BestUSLocationsService {
     public List<City> getAllStatesByStateAbrv(String stateAbrv) {
         return citydao.getAllStateByStateAbrv(stateAbrv);
     }
+
+    public City getCityDetailsByName(String cityName) {
+        return citydao.getCityDetailsByName(cityName);
+    }
 }

@@ -47,4 +47,11 @@ public class CityController {
 
         return ResponseEntity.ok(statesAbrv);
     }
+
+    @GetMapping("/city/{cityName}")
+    public ResponseEntity<City> getCityDetailsByName(String cityName){
+        City cityByName = service.getCityDetailsByName(cityName);
+
+        return ResponseEntity.ok(cityByName);
+    }
 }
