@@ -15,6 +15,12 @@ import java.util.List;
 @RequestMapping("/api")
 public class CityController {
 
+    // methods to add:
+    // 1.) Get information for 1 single city if name, or id of city is provided (instead of a list)
+    // 2.) Add a city to a state
+    // 3.) Delete a city from a state
+    // 4.) Update a city of a state - ie with new locations
+
     @Autowired
     BestUSLocationsService service;
 
