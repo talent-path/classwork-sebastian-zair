@@ -13,4 +13,6 @@ public interface CityDao {
     List<City> getAllStateByStateAbrv(String stateAbrv);
 
     City getCityDetailsByName(String cityName);
+
+    City getCityDetailsByID(Integer cityID);
 }

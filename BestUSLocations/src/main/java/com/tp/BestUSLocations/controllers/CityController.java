@@ -49,9 +49,16 @@ public class CityController {
     }
 
     @GetMapping("/city/{cityName}")
-    public ResponseEntity<City> getCityDetailsByName(String cityName){
+    public ResponseEntity<City> getCityDetailsByName(@PathVariable String cityName){
         City cityByName = service.getCityDetailsByName(cityName);
 
         return ResponseEntity.ok(cityByName);
+    }
+
+    @GetMapping("/city/id/{cityID}")
+    public ResponseEntity<City> getCityDetailsByID(@PathVariable Integer cityID) {
+        City cityByID = service.getCityDeatailsByID(cityID);
+
+        return ResponseEntity.ok(cityByID);
     }
 }

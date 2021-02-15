@@ -53,4 +53,8 @@ public class BestUSLocationsService {
     public City getCityDetailsByName(String cityName) {
         return citydao.getCityDetailsByName(cityName);
     }
+
+    public City getCityDeatailsByID(Integer cityID) {
+        return citydao.getCityDetailsByID(cityID);
+    }
 }

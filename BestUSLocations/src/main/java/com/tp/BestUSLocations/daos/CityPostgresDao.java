@@ -53,6 +53,15 @@ public class CityPostgresDao implements CityDao{
         return cityDetesByName;
     }
 
+    @Override
+    public City getCityDetailsByID(Integer cityID) {
+       City cityDetesByID =  template.queryForObject("SELECT *\n" +
+                "FROM \"Cities\" c\n" +
+                "WHERE c.\"cityID\" = '" + cityID + "'", new CityMapper());
+
+        return cityDetesByID;
+    }
+
     public class CityMapper implements RowMapper<City> {
 
         @Override
