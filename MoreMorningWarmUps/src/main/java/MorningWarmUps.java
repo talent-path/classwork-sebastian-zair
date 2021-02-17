@@ -1,8 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 public class MorningWarmUps {
     public static void main(String[] args) {
-        int num = 56;
-        int orangesLeft = minDays(num);
-        System.out.println(orangesLeft);
+
+        String stupid = "io23rT";
+        System.out.println(stupid.substring(0,1).toUpperCase(Locale.ROOT));
+        System.out.println(letterCasePermutation("io23rT"));
     }
 
     public static int minDays(int n) {
@@ -112,5 +117,34 @@ public class MorningWarmUps {
         }
 
         return false;
+    }
+
+    public static List<String> letterCasePermutation(String S) {
+
+        // so we'll need 2 lsts..? i think maybe not hold on let me see
+        // nope just need 1 list okay so this should be a fair problem
+        // create an array list for later
+        // AD: So we'll start by iterating through the String.
+        // Next when we come across a character in a String we'll take that character and give it an UC and LC version of the initial String
+        // SO..we'll take that new String and add it to our list we created
+        // then we iterate for the next character and repeat the process until all letters have been iterated through
+
+        List<String> manyStrings = new ArrayList<>();
+
+        for(int i = 0; i < S.length(); i++) {
+            if(Character.isLetter(S.charAt(i))){
+
+
+                char changingString = S.charAt(i);
+                String upperCase = S.substring(i, i+1).toUpperCase() + S.substring(i + 1);
+                manyStrings.add(upperCase);
+                String lowerCase = S.substring(i,i+1).toLowerCase() + S.substring(i + 1);
+                manyStrings.add(lowerCase);
+              //  manyStrings.add();
+
+
+            }
+        }
+        return manyStrings;
     }
 }

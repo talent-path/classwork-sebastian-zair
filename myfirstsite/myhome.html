@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- So what do we need in our header?
+    The header defines the metadata
+    ie. defines information ABOUT the page
+    AKA "metadata"
+
+        not every tag (such as meta) needs a closing tag
+
+    "viewport" arranges the size of a screen based on the device using it
+       - most web traffic is in 
+
+       There's a boiler plate you can auto generate for these default things in the header
+
+-->
+    <head>
+
+        <meta charset="UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> My First Site! </title>
+        
+    </head>
+    <body>
+<!-- 
+    The 2 main lay out optinos for tags are either 'block level' or 'in-line'
+
+    Block level elements = (divs, tables, etc) affect the layout by..
+    .. these take up the full width of a window
+    Block level is not inline because inline elements remain within the current line they are on
+    Block elements CREATE A NEW LINE
+    Inline level elements = (span)
+
+-->
+this text comes before the paragraph
+<p>
+    Paragraph tags are block elements 
+    <!-- spacing doesnt matter with those text. It'll always be the same unless explicitly told to do so-->
+
+</p>
+this comes after the paragraph
+<!-- inline level elements examples. They'll stay on the current line..-->
+This is text before span. 
+<span> this text comes after the span</span>
+
+<!-- banners and logos go in the <header> tags
+    links for other websites and such go in the <footer> 
+        Both are inline elements
+    <div> stands for division and they're one of the most common tags for grouping chunks of elements together
+        You can see nested divs often
+    <div style="display" 
+<hq> is a semantic tag..(?)
+    <h1-6> Has the size of your headers be different names
+        a div is a "container" for tags that orchestrates dimensions and stuff
+<ul></ul> is an unordered list (meaning it shows dots for each element)
+   - how do we add to the list? (li tag (list item))
+   <ul> 
+       <li> this is the first item <li>
+           <li> This is the 2nd item> </ul>
+
+<ol> is an ordered list which we will still use "li" for
+<a>  (anchor tag) puts links into your texts. Links such as URLs and Images
+    - we use the href attrivute to decide where to go
+<a href="google.com">click this link to access Google! :D </a>
+    - what if we wanted to have an image become a link what do we do?
+    <br></br>  - to put the 2 links on separate lies
+<a href="google.com" style="display: block; margin:50x;"> <
+    img src="link for image">
+   alt="The main Google logo"
+</a>
+
+SELECTS:
+<select> this tag is used to create dropdowns
+    - choices in your drowndown menu are represented through your options tag
+    when we choose options we are selecting their VALUE
+      and NOT their TEXT
+<select>
+    <option> value="1"> Chihuahua></option>
+    <option value="2"> Terrier </option>
+
+-       - what do we do when we need multiple styles of text?
+<input>
+<textarea>
+    You could put multiple lines of text in this
+</textarea>
+
+<input> this tag represents many different source of inputs
+      - the deafault is text input
+      - define the type of input you want in your input
+
+<input type="text"> This is my default input text </input> (optional closing input tag)
+<input type="text" placehodler="The text the user sees before they type">
+<input type="date" placeholder="the data is in here">
+<input type="datetime"> (if you want the date AND time of something)
+<input type="email"> (if you want validation for an email in there)
+<input type="hidden" (used for holding an ID information that we make sure a user provides)
+<input type="password" (gives you the lil PW box where no one can see the characters being typed in)
+<input type="number" min="0" max="100" (gives a number counter it seems)
+<input type="checkbox" checked> (will start it off as marked meaning you won't need to assign it anything)
+<input type="radio" > (Used for choosing 1 of MANY options)
+
+<span> Option A: </span><input id="option1" value="1" name="dogType" type="radio"<br>
+    - When you use multiple radios which you likely will, you have to have the same 'name'
+    - names and values are the important thing to take away from this
+
+<input type="color">
+<input type="button" value="click me!" onclick="alert('you clicked the button');"
+
+<button onclick="alert(you've clicked the other button)'"> For this tag the button text goes here</button>
+JavaSCRIPT goes in the BOTTOM of the <body> tag..
+
+
+<script type="text/javascript" src="home.js"></script>
+ - when should your script be in a separate page rather than a while"
+ - how do we look up a div for later?
+ <div id="toggletext"
+
+    -->
+
+    </body>
+</html>
