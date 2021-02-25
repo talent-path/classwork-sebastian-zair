@@ -1,0 +1,20 @@
+.square{
+    width: 12.5%;
+    height: 12.5%;
+   
+    display:inline-block;
+}
+
+.board{
+    width: 800px;
+    height: 800px;
+    display:inline-block
+}
+
+.lightSquare{
+    background-color: rgb(196, 173, 173);
+}
+
+.darkSquare{
+    background-color:black;
+}

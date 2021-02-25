@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../GuessingGame"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../hello-typescript"
+		}
+	],
+	"settings": {}
+}
