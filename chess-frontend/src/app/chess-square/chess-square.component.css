@@ -1,14 +1,12 @@
 .square{
     width: 12.5%;
-    height: 12.5%;
+    height: 100%;
    
     display:inline-block;
 }
 
-.board{
-    width: 800px;
-    height: 800px;
-    display:inline-block
+.img{
+    width: 100px;
 }
 
 .lightSquare{

@@ -29,7 +29,7 @@ export interface Board{
 }
 
 
-class ChessBoard implements Board{
+export class ChessBoard implements Board{
 
     //TODO: capture this in the copy constructor at some point...
     // fiftyMoveCount : number;
@@ -69,9 +69,9 @@ class ChessBoard implements Board{
                 //     this.allSquares[row][col] = {kind: PieceType.Pawn, isWhite: true};
                 // }
 
-                // if( row === 1 || row === 6 ){
-                //     this.allSquares[row][col] =  row === 1 ? new WhitePawn() : new BlackPawn();
-                // }
+             if( row === 1 || row === 6 ){
+                    this.allSquares[row][col] =  row === 1 ? new WhitePawn() : new BlackPawn();
+                 }
 
                 if( (row === 0 || row === 7) && (col === 0 || col === 7 )){
                     this.allSquares[row][col] = new Rook( row === 0 );
@@ -149,10 +149,10 @@ class ChessBoard implements Board{
 
 }
 
-console.log( "attempting to create a board")
-let testBoard : Board = new ChessBoard();
-console.log( "done creating a board:");
-//console.log( testBoard );
+// console.log( "attempting to create a board")
+// let testBoard : Board = new ChessBoard();
+// console.log( "done creating a board:");
+// //console.log( testBoard );
 
-testBoard = testBoard.makeMove( { from: {row: 1, col: 3}, to: {row: 3, col: 3} } );
-console.log( testBoard.generateMoves() );
+// testBoard = testBoard.makeMove( { from: {row: 1, col: 3}, to: {row: 3, col: 3} } );
+// console.log( testBoard.generateMoves() );
